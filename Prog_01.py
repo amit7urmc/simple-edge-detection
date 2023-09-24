@@ -3,7 +3,7 @@ import pandas as pd
 from PIL import Image
 import matplotlib.pyplot as plt
 
-ReadImage = Image.open("./images/dont_commit/01.webp")
+ReadImage = Image.open(f"{input('Enter path of the image to be edge-detected.')}")
 Xdim,Ydim = ReadImage.size
 ReadImage = np.array(ReadImage)
 if len(ReadImage.shape)==2:

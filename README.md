@@ -1,0 +1,1 @@
+I am trying simple edge detection.
