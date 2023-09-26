@@ -11,10 +11,11 @@ if len(ReadImage.shape)==2:
 
 def DetectBoundaries(ReadImage, verbose=False, Channels=3, invert=False, samplePercentage=0.10):
     ReadImage = ReadImage/255.0
-    # sortedFlattened = np.random.choice(ReadImage.flatten(),size=int(ReadImage.shape[0]*ReadImage.shape[1]*samplePercentage), replace=False)
-    # Threshold = np.mean(sortedFlattened)
+    # randomFlattened = np.apply_along_axis(lambda x: np.random.choice(x,size=int(Xdim*Ydim*samplePercentage), replace=False),0,ReadImage.reshape(Xdim*Ydim,Channels))
+    # Threshold = np.mean(randomFlattened,axis=0)
+    # if verbose:
+    #     print(Threshold)
     # ReadImage[ReadImage<=Threshold] = 0.0
-    # print(ReadImage.shape)
     Xshape, Yshape, ChannelsPresent = ReadImage.shape
     ReturnedArray = np.zeros((Xshape,Yshape,Channels),dtype=np.float64)
     LUD_Detection = ReadImage[1:,1:,:Channels] - ReadImage[:Xshape-1,:Yshape-1,:Channels]
